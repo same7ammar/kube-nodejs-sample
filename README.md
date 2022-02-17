@@ -1,37 +1,31 @@
 # About
-
 Simple Nodejs app to deploy it to Kubernetes cluster or Docker container.
-## without Installtion.
+
+## requirements 
+1. Docker Installed.
+2. Rancher Desktop - https://rancherdesktop.io .
+3. kubectl if not installed .
+
+## quick install .
 ```sh
-$ kubectl apply -f https://raw.githubusercontent.com/same7ammar/nodejs-sample-k8s/master/kubernetes/
-$ kubectl get all
-NAME                                  READY   STATUS    RESTARTS   AGE
-pod/nodejs-web-app-6fdf6d4f54-m4mgn   1/1     Running   0          20m
-
-NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
-service/nodejs-web-app   LoadBalancer   10.43.240.254   172.17.152.146   3000:30043/TCP   6m58s
-
-NAME                                  DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/svclb-nodejs-web-app   1         1         1       1            1           <none>          6m58s
-
-NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/nodejs-web-app   1/1     1            1           20m
-
-NAME                                        DESIRED   CURRENT   READY   AGE
-replicaset.apps/nodejs-web-app-6fdf6d4f54   1         1         1       20m
-$ curl http://EXTERNAL-IP:PORT
-$ curl http://172.17.152.146  
+$ kubectl apply -f https://raw.githubusercontent.com/same7ammar/rancher-desktop-nodejs-sample/main/kubernetes/deployment.yaml
+$ kubectl apply -f hhttps://raw.githubusercontent.com/same7ammar/rancher-desktop-nodejs-sample/main/kubernetes/service.yaml
+$ kubectl get svc
+NAME             TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
+nodejs-web-app   LoadBalancer   10.43.240.254   172.17.152.146   3000:30043/TCP   7s
+to test service use  curl http://EXTERNAL-IP:PORT
+$ curl http://172.17.152.146 
 Hello World
 ```
-## Installation localy using Rancher Destkop
+## Deploy to local cluster using Rancher Destkop or Cloud providers  ie eks - aks - Civo-  Digital Ocean.
 
-clone to your local machine.
+1. clone git repo to your local machine.
 
 ```bash
-git clone https://github.com/same7ammar/nodejs-sample-k8s.git
+git clone https://github.com/same7ammar/rancher-desktop-nodejs-sample.git
 ```
 
-## Build  your docker image :
+2. Build  your docker image :
 
 ```sh
 $ cd app
@@ -42,7 +36,7 @@ $ docker ps
 $ curl curl http://localhost:3000
 Hello World
 ```
-## Upload image to   your docker-Hub Account :
+3. Upload image to   your docker-Hub Account :
 ```sh
 $ docker login -u same7ammar  --password-stdin 
 Login Succeeded
@@ -53,7 +47,7 @@ The push refers to repository [docker.io/same7ammar/node-web-app-k8s]
 latest: digest: sha256:fa5dd972a9cd1555f3cb4a837aaf5d78bc862fa0053474d9f64f3e7d3eb15ae2 size: 3048
 
 ```
-## Deploy your app to kuberneters cluster - I'm using Rancher Desktop. 
+## Deploy to Kubernetes - Rancher Desktop or other types. 
 1. create a deployment .
 ```sh 
 $ kubectl apply -f kubernetes/deployment.yaml 
