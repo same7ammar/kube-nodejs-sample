@@ -17,7 +17,7 @@ to test service use  curl http://EXTERNAL-IP:PORT
 $ curl http://172.17.152.146 
 Hello World
 ```
-## Deploy to local cluster using Rancher Destkop or Cloud providers  ie eks - aks - Civo-  Digital Ocean.
+## Deploy to kubernetes cluster .
 
 1. clone git repo to your local machine.
 
