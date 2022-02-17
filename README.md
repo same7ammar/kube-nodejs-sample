@@ -17,7 +17,7 @@ to test service use  curl http://EXTERNAL-IP:PORT
 $ curl http://172.17.152.146 
 Hello World
 ```
-## Deploy to kubernetes cluster .
+## Build your own docker image and push it to Docker hub.
 
 1. clone git repo to your local machine.
 
