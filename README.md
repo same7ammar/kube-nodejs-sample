@@ -8,8 +8,9 @@ Simple Nodejs app to deploy it to Kubernetes cluster or Docker container.
 
 ## quick install .
 ```sh
-$ kubectl apply -f https://raw.githubusercontent.com/same7ammar/rancher-desktop-nodejs-sample/main/kubernetes/deployment.yaml
-$ kubectl apply -f hhttps://raw.githubusercontent.com/same7ammar/rancher-desktop-nodejs-sample/main/kubernetes/service.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/same7ammar/kube-nodejs-sample/main/kubernetes/deployment.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/same7ammar/kube-nodejs-sample/main/kubernetes/kubernetes/service.yaml
+
 $ kubectl get svc
 NAME             TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
 nodejs-web-app   LoadBalancer   10.43.240.254   172.17.152.146   3000:30043/TCP   7s
@@ -22,7 +23,7 @@ Hello World
 1. clone git repo to your local machine.
 
 ```bash
-git clone https://github.com/same7ammar/rancher-desktop-nodejs-sample.git
+git clone https://github.com/same7ammar/kube-nodejs-sample.git
 ```
 
 2. Build  your docker image :
